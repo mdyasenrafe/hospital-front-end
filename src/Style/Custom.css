@@ -11,20 +11,28 @@ p {
   cursor: pointer;
 }
 .text-red {
-  color: #ed174a;
+  color: #e90c3f;
 }
-.text-blue {
-  color: #233a95;
+.text-black {
+  color: #25424c;
+}
+.text-oragne {
+  color: #fb770d;
 }
 
-.bg-red {
-  background-color: #ed174a !important;
-  border-color: #ed174a !important;
+.bg-orange {
+  background-color: #fb770d !important;
+  border-color: #fb770d !important;
   color: #fff !important;
 }
-.bg-blue {
-  background-color: #233a95 !important;
-  border-color: #233a95 !important;
+.bg-black {
+  background-color: #25424c !important;
+  border-color: #25424c !important;
+  color: #fff !important;
+}
+.bg-red {
+  background-color: #e90c3f !important;
+  border-color: #e90c3f !important;
   color: #fff !important;
 }
 
@@ -47,54 +55,38 @@ p {
   border-color: #ed174a !important;
   box-shadow: none !important;
 }
-/* navbar */
-@media screen and (max-width: 1024px) {
-  .show {
-    display: inline-block;
-  }
-  .main-navbar {
-    transition-delay: 2s;
-    transform-origin: top;
-    /* transition: all 2s linear ease-in-out; */
-    transition: all 0.5s ease-in-out;
-    width: 100%;
-    /* box-shadow: 0 15px 20px 0 rgb(0 0 0 / 10%); */
-  }
-  .nav {
-    display: none;
-  }
-}
-/* navbar */
-@media screen and (min-width: 1024px) {
-  .show {
-    display: none;
-  }
-}
 
 .banner {
-  z-index: 1;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.678) 100%,
-      rgba(0, 0, 0, 0.582) 100%
-    ),
-    url("https://i.ibb.co/Drf3ZKr/bhmg-north-doctor-with-patient-1900x1258-76270c68.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .banner-text {
-  padding: 150px 0;
+  color: black !important;
 }
-.banner-heading-text {
-  font-size: 36px;
-  font-weight: bolder;
+.banner-text h1 {
+  color: #202435 !important;
+  font-size: 35px;
+}
+
+.carousel-control-next {
+  display: none !important;
+}
+.carousel-control-prev {
+  display: none !important;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: #ed174a !important;
+}
+.banner-parragraph-text {
+  width: 100%;
 }
 /* banner */
 @media screen and (min-width: 780px) {
-  .banner-heading-text {
-    font-size: 50px;
+  .banner-text h1 {
+    font-size: 50px !important;
   }
   .banner-parragraph-text {
-    width: 50%;
+    width: 50% !important;
   }
 }

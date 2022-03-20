@@ -18,8 +18,8 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/about">
               ABout
             </Nav.Link>
-            <Nav.Link as={Link} to="/services">
-              Services
+            <Nav.Link as={Link} to="/departments">
+              Departments
             </Nav.Link>
             <Nav.Link as={Link} to="/doctors">
               Doctors
