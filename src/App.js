@@ -5,6 +5,7 @@ import NotFound from "./Components/NotFound";
 import Home from "./Pages/Home/Home";
 import "./Style/Custom.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Services from "./Pages/Home/Services";
 
 const App = () => {
   const location = useLocation();
@@ -25,6 +26,7 @@ const App = () => {
       <Routes>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/departments" element={<Services />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>

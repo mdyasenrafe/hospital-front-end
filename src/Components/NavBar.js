@@ -7,16 +7,20 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          React-Bootstrap
+          <img
+            height={45}
+            src="https://i.ibb.co/DQdxNHq/large-2-removebg-preview.png"
+            alt=""
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             <Nav.Link as={Link} to="/home">
               Home
             </Nav.Link>
             <Nav.Link as={Link} to="/about">
-              ABout
+              About
             </Nav.Link>
             <Nav.Link as={Link} to="/departments">
               Departments

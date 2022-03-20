@@ -4,7 +4,7 @@ body {
   overflow-x: hidden;
 }
 p {
-  font-size: 14.5px;
+  font-size: 15px;
 }
 
 .cursor-pointor {
@@ -80,6 +80,17 @@ p {
 }
 .banner-parragraph-text {
   width: 100%;
+}
+.department_area {
+  color: #000;
+  margin: auto;
+  max-width: 95%;
+  text-align: center;
+  width: 700px;
+}
+.department_area_text {
+  font-size: 35px;
+  font-weight: 500;
 }
 /* banner */
 @media screen and (min-width: 780px) {
