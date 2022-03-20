@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+  font-family: "Poppins", sans-serif !important;
+  overflow-x: hidden;
+}
+p {
+  font-size: 14.5px;
+}
+
+.cursor-pointor {
+  cursor: pointer;
+}
+.text-red {
+  color: #ed174a;
+}
+.text-blue {
+  color: #233a95;
+}
+
+.bg-red {
+  background-color: #ed174a !important;
+  border-color: #ed174a !important;
+  color: #fff !important;
+}
+.bg-blue {
+  background-color: #233a95 !important;
+  border-color: #233a95 !important;
+  color: #fff !important;
+}
+
+.login-input {
+  width: 700px;
+  max-width: 90% !important;
+  font-family: "Poppins", sans-serif !important;
+  margin: auto;
+}
+
+.form-control,
+.form-floating > .form-select {
+  display: inline;
+}
+.form-control:focus {
+  border-color: #ed174a !important;
+  box-shadow: none !important;
+}
+.form-select:focus {
+  border-color: #ed174a !important;
+  box-shadow: none !important;
+}
+/* navbar */
+@media screen and (max-width: 1024px) {
+  .show {
+    display: inline-block;
+  }
+  .main-navbar {
+    transition-delay: 2s;
+    transform-origin: top;
+    /* transition: all 2s linear ease-in-out; */
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    /* box-shadow: 0 15px 20px 0 rgb(0 0 0 / 10%); */
+  }
+  .nav {
+    display: none;
+  }
+}
+/* navbar */
+@media screen and (min-width: 1024px) {
+  .show {
+    display: none;
+  }
+}
+
+.banner {
+  z-index: 1;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.678) 100%,
+      rgba(0, 0, 0, 0.582) 100%
+    ),
+    url("https://i.ibb.co/Drf3ZKr/bhmg-north-doctor-with-patient-1900x1258-76270c68.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.banner-text {
+  padding: 150px 0;
+}
+.banner-heading-text {
+  font-size: 36px;
+  font-weight: bolder;
+}
+/* banner */
+@media screen and (min-width: 780px) {
+  .banner-heading-text {
+    font-size: 50px;
+  }
+  .banner-parragraph-text {
+    width: 50%;
+  }
+}
