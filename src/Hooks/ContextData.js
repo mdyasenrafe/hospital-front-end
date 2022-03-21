@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import {
   getAuth,
-  RecaptchaVerifier,
   signInWithPhoneNumber,
   onAuthStateChanged,
   updateProfile,
@@ -9,88 +8,36 @@ import {
   signOut,
   signInWithEmailAndPassword,
   sendEmailVerification,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 
 import Swal from "sweetalert2";
+
 import firebaseAuth from "../Firebase/Firebase.init";
 
 firebaseAuth();
 
 const ContextData = () => {
   const auth = getAuth();
-
+  // useState
   const [user, setUser] = useState();
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [profileData, setProfileData] = useState();
+  const [error, setError] = useState();
+  const [isLoading, setisLoading] = useState(true);
 
-  const generatorRecatchpa = () => {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size: "invisible",
-        callback: (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          // ...
-        },
-        "expired-callback": () => {
-          // Response expired. Ask user to solve reCAPTCHA again.
-          // ...
-        },
-      },
-      auth
-    );
-  };
-
-  const handleSignUp = (number) => {
-    generatorRecatchpa();
-    let appVerifier = window.recaptchaVerifier;
-
-    return signInWithPhoneNumber(auth, number, appVerifier);
-  };
-
-  const handleVerify = (otp) => {
-    console.log(otp);
-    let confirmationResult = window.confirmationResult;
-    return confirmationResult?.confirm(otp);
-  };
-
-  // handle email
-  const handleEmail = (email, password) => {
+  // handle email sign in
+  const handleEmailSignIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
-
-  // send verification email
-  const handleVerifyEmail = () => {
-    sendEmailVerification(auth.currentUser).then((res) => {});
+  const handleEmailSignUp = (email, password) => {
+    console.log(email, password);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+  // verify
+  const handleVerify = () => {
+    sendEmailVerification(auth.currentUser).then(() => {});
   };
 
-  // observe whether user auth state changed or not
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        getIdToken(user).then((idToken) =>
-          localStorage.setItem("access_token", idToken)
-        );
-
-        const lastSignTime = user?.metadata?.lastSignInTime;
-
-        const dateOne = lastSignTime;
-        const dateOneObj = new Date(dateOne);
-        const dateTwoObj = new Date();
-        const milliseconds = Math.abs(dateTwoObj - dateOneObj);
-        const hours = milliseconds / 36e5;
-
-        setUser(user);
-      } else {
-        setUser({});
-      }
-      setIsLoading(false);
-    });
-    return () => unsubscribe;
-  }, []);
-
-  // updated user name
+  // update email and password  call
   const updateUserName = (name) => {
     updateProfile(auth.currentUser, {
       displayName: name,
@@ -102,48 +49,47 @@ const ContextData = () => {
         setError(error.message);
       });
   };
-
-  // log out function
-  const logOut = () => {
+  // observe hook
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      }
+      setisLoading(false);
+    });
+  }, [user]);
+  // sign out
+  const handleSignOUt = () => {
     Swal.fire({
-      title: "Are you sure want to logout?",
-      text: "Your class won't be able to revert this!",
-      icon: "question",
+      title: "Do you want Logout?",
+      showDenyButton: false,
       showCancelButton: true,
-      confirmButtonColor: "#ed174a",
-      cancelButtonColor: "#3085d6",
-      confirmButtonText: "Yes",
-    }).then(async (result) => {
+      confirmButtonText: "logout",
+    }).then((result) => {
       if (result.isConfirmed) {
         signOut(auth)
           .then(() => {
-            setUser({});
-            setError("");
-            window.location.reload(true);
-            localStorage.clear();
-            sessionStorage.clear();
-            Swal.fire(" ", "Your Aceount has been Log out now", "success");
+            setUser();
           })
-          .catch((error) => {})
-          .finally(() => setIsLoading(false));
+          .catch((error) => {
+            // An error happened.
+          });
+        Swal.fire(" ", "logout succesfull", "success").then(() => {});
       }
     });
   };
-
   return {
-    handleSignUp,
-    handleVerify,
     user,
     setUser,
-    setError,
     error,
-    updateUserName,
+    setError,
     isLoading,
-    logOut,
-    handleEmail,
-    handleVerifyEmail,
-    profileData,
-    setProfileData,
+    setisLoading,
+    handleEmailSignUp,
+    handleEmailSignIn,
+    handleSignOUt,
+    updateUserName,
+    handleVerify,
   };
 };
 
