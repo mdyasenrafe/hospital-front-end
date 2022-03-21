@@ -149,33 +149,6 @@ const AddService = () => {
             className="mb-3"
           />
         </FloatingLabel>
-
-        <FloatingLabel
-          className="mb-3"
-          controlId="floatingTextarea2"
-          label="Enter Your Description"
-        >
-          <Form.Control
-            {...register("description", { required: true })}
-            as="textarea"
-            placeholder="Leave a comment here"
-            style={{ height: "100px" }}
-            className="mb-3"
-          />
-        </FloatingLabel>
-
-        {/* <FloatingLabel
-          controlId="floatingInput"
-          label="Enter Your Rating"
-          className="mb-3"
-        >
-          <Form.Control
-            type="number"
-            {...register("", { required: true, min: 0, max: 5 })}
-            placeholder="Enter Your Rating here"
-            className="mb-3"
-          />
-        </FloatingLabel> */}
         <input
           type="submit"
           className="btn btn-outline-danger my-4 w-100 d-block"

@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React, { useRef, useState } from "react";
 
 // externel packge
