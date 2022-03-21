@@ -63,7 +63,7 @@ const ManageReview = () => {
     });
   };
 
-  const updateReview = (id) => {
+  const updateReview = async (id) => {
     const res = await updateReviewApi({ _id: id });
     if (res.error == true) {
       Toast.fire({
