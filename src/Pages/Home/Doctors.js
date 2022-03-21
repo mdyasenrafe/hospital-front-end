@@ -34,8 +34,8 @@ const Doctors = () => {
       ) : (
         <>
           <Row xs={1} md={3} className="px-3 px-sm-3 px-md-0 g-4">
-            {teams?.map((data) => (
-              <Col>
+            {teams?.map((data, index) => (
+              <Col key={index}>
                 <Card className="h-100 border-0  shadow-lg p-0">
                   <Card.Img
                     // height={"350px"}

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { postUserApi } from "../../Api/Index";
+import GoogleSignin from "../../Components/GoogleSignin";
 import UseAuth from "../../Hooks/UseAuth";
 
 const Login = () => {
@@ -18,6 +19,19 @@ const Login = () => {
   } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   // usefirebase
   const {
     setUser,
@@ -195,6 +209,7 @@ const Login = () => {
               </p>
             </>
           )}
+          <GoogleSignin />
         </div>
       </div>
     </>

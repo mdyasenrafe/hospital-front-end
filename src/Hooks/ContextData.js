@@ -9,6 +9,8 @@ import {
   signInWithEmailAndPassword,
   sendEmailVerification,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 
 import Swal from "sweetalert2";
@@ -23,6 +25,11 @@ const ContextData = () => {
   const [user, setUser] = useState();
   const [error, setError] = useState();
   const [isLoading, setisLoading] = useState(true);
+
+  const handleWithGoogle = () => {
+    const gogleProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, gogleProvider);
+  };
 
   // handle email sign in
   const handleEmailSignIn = (email, password) => {
@@ -90,6 +97,7 @@ const ContextData = () => {
     handleSignOUt,
     updateUserName,
     handleVerify,
+    handleWithGoogle,
   };
 };
 
