@@ -34,7 +34,7 @@ const Dashboard = () => {
                       className="coustom-nav-link px-2 my-2"
                       to={`/dashboard/addDepertment`}
                     >
-                      Add Prouduct
+                      Add Depertment
                     </Link>
                   </li>
                   <li>
@@ -42,7 +42,7 @@ const Dashboard = () => {
                       className="coustom-nav-link px-2 my-2"
                       to={`/dashboard/manageDepartment`}
                     >
-                      All Prouduct
+                      All Depertment
                     </Link>
                   </li>
                   <li>

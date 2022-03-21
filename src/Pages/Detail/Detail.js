@@ -81,8 +81,8 @@ const Detail = () => {
         <LoadingSpiner loading={loading} height={"100vh"} />
       ) : (
         <Container>
-          <div className="py-4">
-            <h1 className="pb-4">
+          <div className="py-3">
+            <h1 className="pb-2">
               <span>What is </span>
               <span className="text-red">{productDetail?.name}</span>
             </h1>
@@ -95,18 +95,7 @@ const Detail = () => {
             </h1>
             <p>{productDetail?.causes}</p>
           </div>
-          <div>
-            <h1 className="py-3">
-              What are <span className="text-red">{productDetail?.name}</span>{" "}
-              symptoms and signs?
-            </h1>
-            <ul className="fs-5 pb-3">
-              <li>{productDetail?.symptoms[0]}</li>
-              <li>{productDetail?.symptoms[1]}</li>
-              <li>{productDetail?.symptoms[2]}</li>
-              <li>{productDetail?.symptoms[3]}</li>
-            </ul>
-          </div>
+
           <div>
             <h1 className="py-4">
               What is the treatment for{" "}

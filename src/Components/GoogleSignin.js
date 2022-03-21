@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -15,14 +16,15 @@ const GoogleSignin = () => {
     handleWithGoogle()
       .then((res) => {
         setUser(res?.user);
-        console.log(res.user);
-        window.location.href = redirectUrl;
-
         const data = {
           name: res?.user?.displayName,
           email: res?.user?.email,
         };
-        // axios.put("", data).then((res) => {});
+        axios
+          .put("https://hospital30.herokuapp.com/user/updateUser", data)
+          .then((res) => {
+            window.location.href = redirectUrl;
+          });
       })
       .catch((error) => {})
       .finally(() => setIsLoading(false));

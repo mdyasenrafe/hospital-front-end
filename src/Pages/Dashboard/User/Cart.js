@@ -20,6 +20,7 @@ const Cart = () => {
   useEffect(() => {
     if (user?.email) {
       fetchData();
+      setLoading(true);
     }
   }, [page, user]);
 
