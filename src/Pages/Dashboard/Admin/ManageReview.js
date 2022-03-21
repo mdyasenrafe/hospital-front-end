@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import Swal from "sweetalert2";
-import { deleteReviewApi, getReviewApi } from "../../../Api/Index";
+import {
+  deleteReviewApi,
+  getReviewApi,
+  updateReviewApi,
+} from "../../../Api/Index";
 
 const ManageReview = () => {
   const [loading, setLoading] = useState(true);
@@ -34,7 +38,6 @@ const ManageReview = () => {
   });
 
   const handleDelete = (id) => {
-    console.log(id);
     Swal.fire({
       title: "Do you want Delete this Appointment",
       showDenyButton: false,
@@ -58,6 +61,23 @@ const ManageReview = () => {
         }
       }
     });
+  };
+
+  const updateReview = (id) => {
+    const res = await updateReviewApi({ _id: id });
+    if (res.error == true) {
+      Toast.fire({
+        icon: "error",
+        title: "Deleted successfully",
+      });
+    } else {
+      const filterItem = review.filter((item) => item._id !== id);
+      setReview(filterItem);
+      Toast.fire({
+        icon: "success",
+        title: "Deleted successfully",
+      });
+    }
   };
 
   return (
@@ -95,7 +115,7 @@ const ManageReview = () => {
                 <td>{data?.status}</td>
                 <td>
                   <button
-                    // onClick={() => handleDelete(data?._id)}
+                    onClick={() => updateReview(data?._id)}
                     className="btn bg-black mb-2"
                   >
                     Apporve

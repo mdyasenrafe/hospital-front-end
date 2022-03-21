@@ -21,7 +21,7 @@ const apiUrl = {
   updateReview: "review/updateReview",
 };
 
-export const updateReview = async (body) => {
+export const updateReviewApi = async (body) => {
   try {
     const res = await axios.post(url + apiUrl.updateReview, body);
     return res.data;
