@@ -1,16 +1,45 @@
 import React from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { makeAdminApi } from "../../../Api/Index";
 
 const MakeAdmin = () => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = async (data) => {
+    const res = await makeAdminApi(data);
+    if (res?.error == true) {
+      Toast.fire({
+        icon: "error",
+        title: "Something went wrong",
+      });
+    } else {
+      Toast.fire({
+        icon: "success",
+        title: "added successfully",
+      }).then(() => {
+        reset();
+      });
+    }
   };
   return (
     <div>

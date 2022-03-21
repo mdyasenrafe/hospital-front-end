@@ -11,6 +11,7 @@ const apiUrl = {
   deleteDepartment: "departments/deleteDepartment",
   postUser: "user/postUser",
   getUser: "user/getUser",
+  makeAdmin: "user/makeadmin",
   postCart: "cart/postCart",
   getCart: "cart/getCart?page=",
   allCart: "cart/allCart?page=",
@@ -21,6 +22,15 @@ const apiUrl = {
   updateReview: "review/updateReview",
   getDoctor: "doctor/getDoctor",
   AddDoctor: "doctor/addDoctor",
+};
+
+export const makeAdminApi = async (body) => {
+  try {
+    const res = await axios.post(url + apiUrl.makeAdmin, body);
+    return res.data;
+  } catch (err) {
+    console.error({ err });
+  }
 };
 
 export const getDoctorApi = async () => {
