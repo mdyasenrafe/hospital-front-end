@@ -49,7 +49,7 @@ const ManageReview = () => {
         if (res.error == true) {
           Toast.fire({
             icon: "error",
-            title: "Deleted successfully",
+            title: "something went wrong",
           });
         } else {
           const filterItem = review.filter((item) => item._id !== id);
@@ -68,14 +68,12 @@ const ManageReview = () => {
     if (res.error == true) {
       Toast.fire({
         icon: "error",
-        title: "Deleted successfully",
+        title: "something went wrong",
       });
     } else {
-      const filterItem = review.filter((item) => item._id !== id);
-      setReview(filterItem);
       Toast.fire({
         icon: "success",
-        title: "Deleted successfully",
+        title: "Apporved successfully",
       });
     }
   };
@@ -112,14 +110,24 @@ const ManageReview = () => {
                 <td>
                   <img className="box-photo" src={data?.photo} alt="" />
                 </td>
-                <td>{data?.status}</td>
                 <td>
-                  <button
-                    onClick={() => updateReview(data?._id)}
-                    className="btn bg-black mb-2"
-                  >
-                    Apporve
-                  </button>
+                  {data?.status === "appoved" ? (
+                    <span className="text-success">{data?.status}</span>
+                  ) : (
+                    data?.status
+                  )}
+                </td>
+                <td>
+                  {data?.status == "appoved" ? (
+                    <></>
+                  ) : (
+                    <button
+                      onClick={() => updateReview(data?._id)}
+                      className="btn bg-black mb-2"
+                    >
+                      Apporve
+                    </button>
+                  )}
                   <button
                     onClick={() => handleDelete(data?._id)}
                     className="btn bg-red"

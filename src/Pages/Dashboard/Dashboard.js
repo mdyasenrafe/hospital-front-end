@@ -53,6 +53,14 @@ const Dashboard = () => {
                       Review
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      className="coustom-nav-link px-2 my-2"
+                      to={`/dashboard/addDoctor`}
+                    >
+                      Add Doctor
+                    </Link>
+                  </li>
                 </>
               ) : (
                 <>

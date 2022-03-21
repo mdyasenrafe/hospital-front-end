@@ -19,6 +19,26 @@ const apiUrl = {
   postReview: "review/addReview",
   deleteReview: "review/deleteReview",
   updateReview: "review/updateReview",
+  getDoctor: "doctor/getDoctor",
+  AddDoctor: "doctor/addDoctor",
+};
+
+export const getDoctorApi = async () => {
+  try {
+    const res = await axios.get(url + apiUrl.getDoctor);
+    return res.data;
+  } catch (err) {
+    console.error({ err });
+  }
+};
+
+export const addDoctorApi = async (body) => {
+  try {
+    const res = await axios.post(url + apiUrl.AddDoctor, body);
+    return res.data;
+  } catch (err) {
+    console.error({ err });
+  }
 };
 
 export const updateReviewApi = async (body) => {

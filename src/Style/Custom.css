@@ -120,6 +120,14 @@ p {
   list-style: none;
   display: inline-block;
 }
+.review-image {
+  width: 100px !important;
+  height: 100px !important;
+  line-height: 100px !important;
+  border-radius: 50% !important;
+  text-align: center !important;
+  display: inline-block !important;
+}
 /* banner */
 @media screen and (min-width: 780px) {
   .banner-text h1 {

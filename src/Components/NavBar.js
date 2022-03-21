@@ -27,6 +27,9 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/department">
               Departments
             </Nav.Link>
+            <Nav.Link as={Link} to="/review">
+              Review
+            </Nav.Link>
             <Nav.Link as={Link} to="/doctors">
               Doctors
             </Nav.Link>

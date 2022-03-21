@@ -24,6 +24,8 @@ import AdminRoute from "./Hooks/AdminRoute";
 import DashBoardHome from "./Pages/Dashboard/DashBoardHome";
 import ManageReview from "./Pages/Dashboard/Admin/ManageReview";
 import About from "./Pages/Home/About";
+import Review from "./Pages/Home/Review";
+import Doctors from "./Pages/Home/Doctors";
 
 const App = () => {
   const location = useLocation();
@@ -50,6 +52,8 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/department" element={<Services />}></Route>
         <Route path="/about" element={<About />}></Route>
+        <Route path="/review" element={<Review />}></Route>
+        <Route path="/doctors" element={<Doctors />}></Route>
         <Route
           path="/department/:id"
           element={
