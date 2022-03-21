@@ -65,11 +65,7 @@ const AddService = () => {
           />
         </FloatingLabel>
 
-        <FloatingLabel
-          controlId="floatingInput"
-          label="Enter Your Image Link"
-          className="mb-3"
-        >
+        <FloatingLabel controlId="floatingInput" label="Photo" className="mb-3">
           <Form.Control
             {...register("photo", { required: true })}
             type="text"
