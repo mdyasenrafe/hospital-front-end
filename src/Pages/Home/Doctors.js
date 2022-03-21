@@ -35,8 +35,8 @@ const Doctors = () => {
         <>
           <Row xs={1} md={3} className="px-3 px-sm-3 px-md-0 g-4">
             {teams?.map((data) => (
-              <Col className="h-100 border-0  shadow-lg p-0">
-                <Card>
+              <Col>
+                <Card className="h-100 border-0  shadow-lg p-0">
                   <Card.Img
                     // height={"350px"}
                     width={"200"}
