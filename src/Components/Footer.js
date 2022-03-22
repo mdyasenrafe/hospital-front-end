@@ -28,13 +28,8 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="coustom-nav-link px-2 py-1" to="/products">
-                    Products
-                  </Link>
-                </li>
-                <li>
-                  <Link className="coustom-nav-link  px-2 py-1" to="/contact">
-                    Contact us
+                  <Link className="coustom-nav-link px-2 py-1" to="/department">
+                    Department
                   </Link>
                 </li>
                 <li>
